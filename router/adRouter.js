@@ -1,4 +1,4 @@
-const {Ad} = require('../db')
+const {Ad, User} = require('../db')
 const { Router } = require('express')
 const router = new Router
 
@@ -18,7 +18,7 @@ router.get('/ads', (req, res, next)=>{
 
 router.get('/ads/:id', (req, res, next)=>{
     Ad
-        .findByPk(req.params.id)
+        .findByPk(req.params.id, {include: [User]})
         .then(ad => {
             if(!ad){
                 res.status(404).end()
