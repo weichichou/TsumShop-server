@@ -1,9 +1,12 @@
 {
-  "name": "TsumShop-server",
+  "name": "tsum-shop-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create-example-data": "node create-example-data.js",
+    "start": "node index.js",
+    "start-dev-server": "npx nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,5 +18,8 @@
     "express": "^4.17.1",
     "pg": "^7.12.1",
     "sequelize": "^5.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
   }
 }

@@ -14,19 +14,13 @@ class Ad extends Model {}
 Ad.init({
   title: DataTypes.STRING,
   desc: DataTypes.TEXT,
-  //remeber to change price's datatype
-  price: DataTypes.STRING,
+  price: DataTypes.INTEGER,
   pictureUrl: DataTypes.TEXT
 }, { sequelize: db, modelName: 'ad' });
 
 Ad.belongsTo(User)
 
-db
-    .sync()
-    .then(()=>console.log('Database connected'))
-    .catch(err=>console.error(err))
-
-module.exports = db
+module.exports = {db, User, Ad}
 
 
 
