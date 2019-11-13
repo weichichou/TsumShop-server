@@ -14,7 +14,7 @@ class Ad extends Model {}
 Ad.init({
   title: DataTypes.STRING,
   desc: DataTypes.TEXT,
-  price: DataTypes.INTEGER,
+  price: DataTypes.INTEGER, //decimal?
   pictureUrl: DataTypes.TEXT
 }, { sequelize: db, modelName: 'ad' });
 

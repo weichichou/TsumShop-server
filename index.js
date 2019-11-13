@@ -6,15 +6,16 @@ const adRouter = require('./router/adRouter')
 
 const app = express()
 const corsMiddleware = cors()
-app.use(corsMiddleware)
-app.use(bodyParser.json())
+const port = 4000
+
+app
+    .use(corsMiddleware)
+    .use(bodyParser.json())
+    .use(adRouter)
+    .listen(port, () => console.log(`Listen on port ${port}`))
 
 db
     .sync()
     .then(()=>console.log('Database connected'))
     .catch(err=>console.error(err))
 
-app.use(adRouter)
-
-const port = 4000
-app.listen(port, () => console.log(`Listen on port ${port}`))
